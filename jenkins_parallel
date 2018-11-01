@@ -24,13 +24,14 @@ pipeline{
                                   agent {label 'master'}
                                     steps{
                                         sh 'java -version'
+                                        echo 'Baji weds infinite'
                                         }
                                         }
                                 stage('Integration Test'){
                                     agent {label 'SSH2'}
                                      steps{
                                         sh 'java -version'
-                                        echo 'Devops'
+                                        echo 'Ramesh'
                                         }
                                         }
                                       }
