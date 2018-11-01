@@ -13,7 +13,8 @@ pipeline{
                             }
                   stage('Testing'){                         
                             parallel{
-                                stage('Unit test'){                                    
+                                stage('Unit test'){  
+                                    agent {label 'SSH1'}
                                     steps{
                                         sh 'java -version'
                                         }
