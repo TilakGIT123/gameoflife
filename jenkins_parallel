@@ -11,8 +11,7 @@ pipeline{
                             sh 'mvn -v'
                             }
                             }
-                  stage('Testing'){  
-                        
+                  stage('Testing'){                         
                             parallel{
                                 stage('Unit test'){                                    
                                     steps{
