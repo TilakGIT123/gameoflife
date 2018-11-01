@@ -1,0 +1,42 @@
+pipeline{
+      agent any
+        tools {
+              maven 'Maven_New'
+              jdk 'JDK'
+              }
+              stages{
+                  stage ('Build'){
+                        steps{
+                            sh 'mvn -v'
+                            }
+                            }
+                  stage('Testing'){ 
+                            parallel{
+                                stage('Unit test'){
+                                    steps{
+                                        sh 'java -version'
+                                        }
+                                        }
+                                stage('Functional Test){
+                                    steps{
+                                        sh 'java -version'
+                                        }
+                                        }
+                                stage('Integration Test'){
+                                     steps{
+                                        sh 'java -version'
+                                        }
+                                        }
+                                      }
+                                    }
+                                    stage('Deploy'){
+                                       steps{
+                                           echo 'Deploy'
+                                           }
+                                           }
+                                         }
+                                       }
+                                      
+                    
+                           
+                            
