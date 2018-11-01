@@ -1,19 +1,20 @@
 pipeline{
-      agent {label 'master'}
+      agent none
         tools {
               maven 'Maven_New'
               jdk 'JDK'
               }
-              stages{
-                  stage ('Build'){
+              stages{                    
+                  stage ('Build'){  
+                       agent {label 'SSH1'}
                         steps{
                             sh 'mvn -v'
                             }
                             }
-                  stage('Testing'){ 
-                          agent {label 'SSH1'}
+                  stage('Testing'){  
+                        agent {label 'SSH2'}
                             parallel{
-                                stage('Unit test'){
+                                stage('Unit test'){                                    
                                     steps{
                                         sh 'java -version'
                                         }
@@ -32,6 +33,7 @@ pipeline{
                                     }
                                   
                                     stage('Deploy'){
+                                        agent {label 'SSH1'}
                                        steps{
                                            echo 'Deploy'
                                            }
