@@ -34,6 +34,13 @@ pipeline{
                                         echo 'Ramesh'
                                         }
                                         }
+                                stage('Acceptance Test'){
+                                    agent {label 'SSH2'}
+                                     steps{
+                                        sh 'java -version'
+                                        echo 'Ramesh'
+                                        }
+                                        }                                        
                                       }
                                   }
                                   
