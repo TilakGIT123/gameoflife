@@ -1,5 +1,5 @@
 pipeline{
-      agent none
+      agent {label 'master'}
         tools {
               maven 'Maven_New'
               jdk 'JDK'
