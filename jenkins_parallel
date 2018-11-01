@@ -31,7 +31,7 @@ pipeline{
                                     agent {label 'SSH2'}
                                      steps{
                                         sh 'java -version'
-                                        echo 'Ramesh'
+                                        echo 'Arsha'
                                         }
                                         }
                                 stage('Acceptance Test'){
