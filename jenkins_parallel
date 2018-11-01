@@ -1,5 +1,5 @@
 pipeline{
-      agent {label 'master'}
+      
         tools {
               maven 'Maven_New'
               jdk 'JDK'
@@ -14,19 +14,23 @@ pipeline{
                   stage('Testing'){                         
                             parallel{
                                 stage('Unit test'){  
-                                    agent {label 'SSH1'}
+                                   agent {label 'SSH1'}
                                     steps{
                                         sh 'java -version'
+                                        echo 'Tilak'
                                         }
                                         }
                                 stage('Functional Test'){
+                                  agent {label 'master'}
                                     steps{
                                         sh 'java -version'
                                         }
                                         }
                                 stage('Integration Test'){
+                                    agent {label 'SSH2'}
                                      steps{
                                         sh 'java -version'
+                                        echo 'Devops'
                                         }
                                         }
                                       }
