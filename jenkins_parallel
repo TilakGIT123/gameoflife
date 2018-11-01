@@ -6,7 +6,7 @@ pipeline{
               }
               stages{                    
                   stage ('Build'){  
-                       agent {label 'master'}
+                       agent {label 'SSH1'}
                         steps{
                             sh 'mvn -v'
                             }
