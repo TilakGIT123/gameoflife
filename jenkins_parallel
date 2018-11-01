@@ -6,13 +6,13 @@ pipeline{
               }
               stages{                    
                   stage ('Build'){  
-                       agent {label 'SSH1'}
+                       agent {label 'master'}
                         steps{
                             sh 'mvn -v'
                             }
                             }
                   stage('Testing'){  
-                        agent {label 'SSH2'}
+                        agent {label 'SSH1'}
                             parallel{
                                 stage('Unit test'){                                    
                                     steps{
@@ -33,7 +33,7 @@ pipeline{
                                     }
                                   
                                     stage('Deploy'){
-                                        agent {label 'SSH1'}
+                                        agent {label 'SSH2'}
                                        steps{
                                            echo 'Deploy'
                                            }
