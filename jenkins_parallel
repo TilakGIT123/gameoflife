@@ -17,7 +17,7 @@ pipeline{
                                         sh 'java -version'
                                         }
                                         }
-                                stage('Functional Test){
+                                stage('Functional Test'){
                                     steps{
                                         sh 'java -version'
                                         }
