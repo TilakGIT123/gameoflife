@@ -7,7 +7,7 @@ pipeline {
 
         booleanParam(name: 'TOGGLE', defaultValue: true, description: 'Toggle this value')
 
-        choice(choices: 'US-EAST-1,US-EAST-1', description: 'What AWS region?', name: 'region')
+        choice(choices: 'US-EAST-1';'US-EAST-1', description: 'What AWS region?', name: 'region')
         
         password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')
 
