@@ -1,0 +1,14 @@
+
+pipeline {
+    agent any
+        properties(
+        [parameters([choice(choices: ["A", "B", "C"].join("\n"),description: 'Some choice parameter',name: 'CHOICE')])])
+        
+        stages {
+        stage('Example') {
+            steps {               
+                echo "Choice: ${params.CHOICE}"               
+            }
+        }
+    }
+        }
