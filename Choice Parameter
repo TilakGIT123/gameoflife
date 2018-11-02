@@ -1,10 +1,7 @@
 
 pipeline {
     agent any
-        options(
-            [parameters([choice(choices: ["A", "B", "C"].join("\n"),
-            description: 'Some choice parameter', 
-            name: 'SOME_CHOICE')])])
+        options([parameters{choice(choices: ["A", "B", "C"].join("\n"),description: 'Some choice parameter',name: 'SOME_CHOICE')}])
         
         stages {
         stage('Example') {
