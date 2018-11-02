@@ -7,7 +7,7 @@ pipeline {
 
         booleanParam(name: 'TOGGLE', defaultValue: true, description: 'Toggle this value')
 
-        choice(choices: 'US-EAST-1';'US-EAST-1', description: 'What AWS region?', name: 'region')
+        choice(choices: ["A", "B", "C"].join("\n"),description: 'Some choice parameter',name: 'CHOICE')
         
         password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')
 
@@ -22,7 +22,7 @@ pipeline {
 
                 echo "Toggle: ${params.TOGGLE}"
 
-                echo "choice: ${params.region}"
+                echo "choice: ${params.CHOICE}"
 
                 echo "Password: ${params.PASSWORD}"
             }
