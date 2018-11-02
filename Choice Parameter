@@ -1,7 +1,7 @@
 
 pipeline {
     agent any
-        options(
+        properties(
             [parameters([choice(choices: ["A", "B", "C"].join("\n"),
             description: 'Some choice parameter', 
             name: 'SOME_CHOICE')])])
