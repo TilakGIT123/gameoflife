@@ -1,7 +1,7 @@
 
 pipeline {
     agent any
-      properties([parameters([choice(choices: "debug\nrelease\ndev",
+      options([parameters([choice(choices: "debug\nrelease\ndev",
         description: '', name: 'CHOICE')]), pipelineTriggers([])])
         
         stages {
