@@ -3,8 +3,8 @@ pipeline {
     agent any
       parameters {        
         //choice(choices: "option1\noption2\noption3\n", description: 'delimiters within string', name: 'CHOICE')
-        //choice(choices: "one\two\nopt3\n", description: 'Pick something',name: 'CHOICE')
-                choice(name: 'CHOICE', choices: ['one', 'two', 'three'], description: 'Pick something')
+        //choice(choices: "one\two\opt3\n", description: 'Pick something',name: 'CHOICE')
+                
         }
         stages {
             stage('Example') {
