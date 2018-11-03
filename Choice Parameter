@@ -1,7 +1,9 @@
 
 pipeline {
     agent any
-        options([parameters{choice(choices: ["A", "B", "C"].join("\n"),description: 'Some choice parameter',name: 'SOME_CHOICE')}])
+     
+        choice = new ChoiceParameterDefinition('Param name', ['option1', 'option2'] as String[], 'Description')
+        input message: 'Select one', parameters: [choice]
         
         stages {
         stage('Example') {
