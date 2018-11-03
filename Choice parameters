@@ -3,5 +3,12 @@ pipeline {
      parameters {
           string(name: 'PERSON', description: 'Who should I say hello to?')
           choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
+          }
+  stages{
+             stage('forDemo') {
+                  steps {
+                    sh 'echo This is master'                        
+                        }
+                   }
   }
 }
