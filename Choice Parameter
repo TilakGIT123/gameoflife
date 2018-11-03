@@ -1,14 +1,13 @@
 
 pipeline {
     agent any
-     
-        choice = new ChoiceParameterDefinition('Param name', ['option1', 'option2'] as String[], 'Description')
-        input message: 'Select one', parameters: [choice]
-        
+      parameters {
+                choice(name: 'CHOICE', choices: "One\Two\Three", description: 'Pick something')
+        }
         stages {
-        stage('Example') {
-            steps {               
-                echo "Choice: ${params.CHOICE}"               
+            stage('Example') {
+                steps {               
+                    echo "Choice: ${params.CHOICE}"               
             }
         }
     }
