@@ -3,7 +3,8 @@ pipeline {
     agent any
       parameters {
 
-        choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'] as String[], description: 'Pick something')
+        
+        choice(choices: "option1\noption2\noption3\n", description: 'delimiters within string', name: 'CHOICE'),
         }
         stages {
             stage('Example') {
