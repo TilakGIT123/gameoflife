@@ -1,8 +1,9 @@
 
 pipeline {
     agent any
-      options([parameters([choice(choices: "debug\nrelease\ndev",
-        description: '', name: 'CHOICE')]), pipelineTriggers([])])
+      parameters {
+
+        choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'] as String[], description: 'Pick something')
         
         stages {
             stage('Example') {
