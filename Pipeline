@@ -1,16 +1,16 @@
 pipeline {
   agent any
   tools { 
-        maven 'Maven_New'
-        jdk 'JDK'
+        maven 'MAVEN_NEW'
+        jdk 'JDK8'
   }
   environment {
-        MYJOB = 'DevOps'
+        MYJOB = 'Pipeline_Exercise'
         BUILD = 'PIPELINE'
     }
   stages {
     stage('Clone repository') {
-	environment {
+	  environment {
         MYJOB = 'DevOps1'
         BUILD = 'PIPELINE1'
     }
@@ -21,24 +21,11 @@ pipeline {
     }
       stage('Build') {
         steps {
-        sh 'mvn clean package'
+        sh 'mvn package'
         sh 'echo $USER'
         sh 'echo whoami'
         sh 'echo $MYJOB'
         } 
-        post {
-                always {
-                        junit "**/target/**/*.xml"
-                }
-        }
       }
-      stage('forDemo') {
-      when {
-            branch 'master'
-        }
-      steps {
-        sh 'echo This is master'
       }
-    }
-   }
-}
+      }
