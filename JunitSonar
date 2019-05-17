@@ -1,0 +1,26 @@
+pipeline {
+  agent any
+  tools { 
+        maven 'Maven'        
+  }
+ 
+  stages {
+    stage('Clone repository') {	
+      steps {
+        checkout scm
+        sh 'echo $MYJOB'
+      }
+    }
+      stage('Build') {
+        steps {
+        sh 'mvn clean package'
+        sh 'echo $USER'
+        sh 'echo whoami'
+        sh 'echo $MYJOB'
+        } 
+        post {
+                always {
+                        junit "**/target/**/*.xml"
+                }
+        }
+      }
