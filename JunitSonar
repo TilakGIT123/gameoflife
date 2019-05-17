@@ -19,7 +19,7 @@ pipeline {
         sh 'echo $MYJOB'
         } 
         }
-        stage('JunitResults) {
+        stage('JunitResults') {
         steps {
                 junit '**/target/**/*.xml'
            }
