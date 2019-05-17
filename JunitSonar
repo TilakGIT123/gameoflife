@@ -26,7 +26,9 @@ pipeline {
         }
         stage('Sonarqube') {
         steps {
-        def scannerHome = tool 'sonar';
+         environment{
+         scannerHome = tool 'sonar'
+         }
         withSonarQubeEnv ('sonarqube'){        
             sh "${scannerHome}/bin/sonar-scanner sonar.host.url=https://sonarcloud.io sonar.login=bc7ccb521384bb422496330161fff3221fd99903 sonar.organization=sonar333 sonar.projectKey=dev3084 sonar.source= sonar.language=java sonar.java.binaries=target/classes"
                 }
