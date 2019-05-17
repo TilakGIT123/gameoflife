@@ -18,9 +18,13 @@ pipeline {
         sh 'echo whoami'
         sh 'echo $MYJOB'
         } 
-        post {
-                always {
-                        junit "**/target/**/*.xml"
-                }
+        }
+        stage('JunitResults) {
+        steps {
+                junit '**/target/**/*.xml'
+           }
+        }
+        
+        
         }
       }
