@@ -25,9 +25,12 @@ pipeline {
            }
         }
         stage('Sonarqube') {
-         
+          environment{
+            scannerHome = tool 'sonar'
+         }
         steps {                 
-            sh "${tool 'sonar'}/bin/sonar-scanner -sonar.host.url=https://sonarcloud.io -Dsonar.login=bc7ccb521384bb422496330161fff3221fd99903 -Dsonar.organization=sonar333 -Dsonar.projectKey=dev3084 -Dsonar.source= -Dsonar.language=java -Dsonar.java.binaries=target/classes"
+        withSonarQubeEnv ('sonarqube')
+            sh "${scannerHome}/bin/sonar-scanner -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=bc7ccb521384bb422496330161fff3221fd99903 -Dsonar.organization=sonar333 -Dsonar.projectKey=dev3084 -Dsonar.source= -Dsonar.language=java -Dsonar.java.binaries=target/classes"
            }
          }       
         }
